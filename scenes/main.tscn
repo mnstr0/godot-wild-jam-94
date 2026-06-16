@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://iukwkup02nn4"]
 
 [ext_resource type="Texture2D" uid="uid://8kg5qrcbxofc" path="res://assets/spritesheets/Borders_white.png" id="1_tbgi4"]
-[ext_resource type="Script" uid="uid://d04ctnr5ltltf" path="res://scripts/tama.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cyauepk8adsdv" path="res://scenes/tama.tscn" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
@@ -58,12 +57,16 @@ tile_set = SubResource("TileSet_85g3d")
 [node name="Path2D" type="Path2D" parent="Entities" unique_id=11422462]
 curve = SubResource("Curve2D_0wfyh")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Entities/Path2D" unique_id=2060712254]
-position = Vector2(256, 424)
+[node name="TamaPath" type="PathFollow2D" parent="Entities/Path2D" unique_id=2060712254]
+position = Vector2(320, 424)
+progress = 64.0
 loop = false
 
-[node name="TamaSprite" parent="Entities/Path2D/PathFollow2D" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
+[node name="TamaSprite" parent="Entities/Path2D/TamaPath" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
 position = Vector2(0, -5)
 animation = &"gen_3_walk"
-frame_progress = 0.31469518
-script = ExtResource("3_sugp2")
+frame_progress = 0.0
+
+[node name="SpawnPoint" type="Marker2D" parent="Entities/Path2D/TamaPath" unique_id=805363733]
+visible = false
+position = Vector2(0, -5)
