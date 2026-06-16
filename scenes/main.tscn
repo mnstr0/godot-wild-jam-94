@@ -1,13 +1,11 @@
-[gd_scene format=3 uid="uid://iukwkup02nn4"]
+[gd_scene format=4 uid="uid://iukwkup02nn4"]
 
-[ext_resource type="Texture2D" uid="uid://ben6vmc4xfxee" path="res://assets/spritesheets/backgroundbordersprites.png" id="1_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://dcaunojyy0gkn" path="res://assets/spritesheets/gen2spirtes.png" id="2_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://devvpp38pli5a" path="res://assets/spritesheets/gen3spirtes.png" id="3_tefeu"]
-[ext_resource type="Texture2D" uid="uid://1of156480wob" path="res://assets/spritesheets/New Piskel.png" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://8kg5qrcbxofc" path="res://assets/spritesheets/Borders_white.png" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://d04ctnr5ltltf" path="res://scripts/tama.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cyauepk8adsdv" path="res://scenes/tama.tscn" id="5_tbgi4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
-texture = ExtResource("1_jyhfs")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
+texture = ExtResource("1_tbgi4")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -22,65 +20,19 @@ texture = ExtResource("1_jyhfs")
 2:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_85g3d"]
-sources/0 = SubResource("TileSetAtlasSource_tipki")
+sources/1 = SubResource("TileSetAtlasSource_tefeu")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
-texture = ExtResource("2_tbgi4")
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
-texture = ExtResource("3_tefeu")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
-texture = ExtResource("4_o6xl0")
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_trceg"]
-sources/0 = SubResource("TileSetAtlasSource_choun")
-sources/1 = SubResource("TileSetAtlasSource_ya4ey")
-sources/2 = SubResource("TileSetAtlasSource_eb6dy")
+[sub_resource type="Curve2D" id="Curve2D_0wfyh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 256, 424, 0, 0, 0, 0, 384, 424)
+}
+point_count = 2
 
 [node name="main" type="Node2D" unique_id=1432613341]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144519046]
+layer = -1
+follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1264992019]
 z_index = -1
@@ -89,22 +41,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.72156864, 0.7607843, 0.7254902, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=288834056]
-position = Vector2(-1110, -1002)
 anchor_mode = 0
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=45208064]
-
-[node name="Background" type="TileMapLayer" parent="TileMapLayers" unique_id=1138121333]
-navigation_enabled = false
+modulate = Color(0.21960784, 0.16862746, 0.14901961, 1)
 
 [node name="World" type="TileMapLayer" parent="TileMapLayers" unique_id=1063329199]
+tile_map_data = PackedByteArray("AAAPABoAAQACAAEAAAAQABoAAQABAAEAAAARABoAAQABAAEAAAASABoAAQABAAEAAAATABoAAQABAAEAAAAUABoAAQABAAEAAAAVABoAAQABAAEAAAAWABoAAQABAAEAAAAXABoAAQABAAEAAAAYABoAAQACAAEAAGAPABYAAQACAAEAAFAPABcAAQABAAEAAFAPABgAAQABAAEAAFAPABkAAQABAAEAAFAQABYAAQABAAEAADARABYAAQABAAEAADASABYAAQABAAEAADATABYAAQABAAEAADAUABYAAQABAAEAADAVABYAAQABAAEAADAWABYAAQABAAEAADAXABYAAQABAAEAADAYABYAAQACAAEAADAYABkAAQABAAEAAGAYABgAAQABAAEAAGAYABcAAQABAAEAAGA=")
 tile_set = SubResource("TileSet_85g3d")
-
-[node name="Tama" type="TileMapLayer" parent="TileMapLayers" unique_id=610237969]
-tile_set = SubResource("TileSet_trceg")
 
 [node name="Entities" type="Node2D" parent="." unique_id=2130636061]
 
-[node name="TamaSprite" parent="Entities" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
+[node name="Path2D" type="Path2D" parent="Entities" unique_id=11422462]
+curve = SubResource("Curve2D_0wfyh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Entities/Path2D" unique_id=2060712254]
+position = Vector2(256, 424)
+loop = false
+
+[node name="TamaSprite" parent="Entities/Path2D/PathFollow2D" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
+position = Vector2(0, -5)
+animation = &"gen_3_walk"
+frame_progress = 0.31469518
+script = ExtResource("3_sugp2")
