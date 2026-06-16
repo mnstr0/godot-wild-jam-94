@@ -80,16 +80,24 @@ sources/2 = SubResource("TileSetAtlasSource_eb6dy")
 
 [node name="main" type="Node2D" unique_id=1432613341]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=423553082]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144519046]
 
-[node name="Background" type="CanvasLayer" parent="CanvasModulate" unique_id=827363030]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1264992019]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=288834056]
+position = Vector2(-1110, -1002)
 anchor_mode = 0
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=45208064]
 
 [node name="Background" type="TileMapLayer" parent="TileMapLayers" unique_id=1138121333]
+navigation_enabled = false
 
 [node name="World" type="TileMapLayer" parent="TileMapLayers" unique_id=1063329199]
 tile_set = SubResource("TileSet_85g3d")
@@ -99,4 +107,4 @@ tile_set = SubResource("TileSet_trceg")
 
 [node name="Entities" type="Node2D" parent="." unique_id=2130636061]
 
-[node name="Node2D" parent="Entities" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
+[node name="TamaSprite" parent="Entities" unique_id=1616122847 instance=ExtResource("5_tbgi4")]

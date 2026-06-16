@@ -140,7 +140,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="AnimatedSprite2D" unique_id=1616122847]
+[node name="TamaSprite" type="AnimatedSprite2D" unique_id=1616122847]
 sprite_frames = SubResource("SpriteFrames_p04qi")
-animation = &"gen_2_walk"
-frame_progress = 0.8279158
+animation = &"gen_1_idle"
+autoplay = "gen_1_idle"
