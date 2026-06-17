@@ -151,12 +151,13 @@ frame_progress = 0.16168427
 
 [node name="Pathing" type="Node2D" parent="." unique_id=1202144787]
 script = ExtResource("4_a0a3e")
+idle_timeout = 2.0
 
 [node name="Mood" type="Node2D" parent="." unique_id=1379283225]
 script = ExtResource("5_by7cs")
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=1377956296]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
