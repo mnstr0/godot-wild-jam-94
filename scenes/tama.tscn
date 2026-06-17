@@ -145,9 +145,8 @@ animations = [{
 [node name="TamaSprite" type="AnimatedSprite2D" unique_id=1616122847]
 modulate = Color(0.21960784, 0.16862746, 0.14901961, 1)
 sprite_frames = SubResource("SpriteFrames_p04qi")
-animation = &"gen_3_idle"
-autoplay = "gen_1_idle"
-frame_progress = 0.9161788
+animation = &"gen_1_walk"
+autoplay = "gen_1_walk"
 
 [node name="Pathing" type="Node2D" parent="." unique_id=1202144787]
 script = ExtResource("4_a0a3e")
