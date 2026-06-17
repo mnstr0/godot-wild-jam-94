@@ -68,7 +68,9 @@ func proceed_to_path_goal(ratio: float) -> void:
 	elif tama_path.progress_ratio > ratio:
 		tama_path.progress_ratio -= 0.001
 	elif tama_path.progress_ratio == ratio:
-		pass
+		if tama_sprite.animation != "gen_1_idle":
+			tama_sprite.animation = "gen_1_idle"
+		change_state(MovementState.IDLE)
 
 func update_current_progress_ratio() -> void:
 	current_progress_ratio = tama_path.progress_ratio + rand_ratio_mod
