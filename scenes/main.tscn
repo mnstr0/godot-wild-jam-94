@@ -22,6 +22,7 @@ texture = ExtResource("1_tbgi4")
 sources/1 = SubResource("TileSetAtlasSource_tefeu")
 
 [sub_resource type="Curve2D" id="Curve2D_0wfyh"]
+bake_interval = 16.0
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 256, 424, 0, 0, 0, 0, 384, 424)
 }
@@ -67,7 +68,7 @@ loop = false
 [node name="TamaSprite" parent="Entities/Path2D/TamaPath" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
 position = Vector2(0, -5)
 animation = &"gen_3_idle"
-frame_progress = 0.2115785
+frame_progress = 0.6539781
 
 [node name="SpawnPoint" type="Marker2D" parent="Entities/Path2D/TamaPath" unique_id=805363733]
 visible = false
