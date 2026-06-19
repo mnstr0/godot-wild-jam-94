@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://iukwkup02nn4"]
 
 [ext_resource type="Texture2D" uid="uid://8kg5qrcbxofc" path="res://assets/spritesheets/Borders_white.png" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://ck2rhd6lunarw" path="res://scenes/food.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cyauepk8adsdv" path="res://scenes/tama.tscn" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
@@ -27,6 +28,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 256, 424, 0, 0, 0, 0, 384, 424)
 }
 point_count = 2
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jyhfs"]
 
 [node name="main" type="Node2D" unique_id=1432613341]
 
@@ -57,20 +60,45 @@ tile_map_data = PackedByteArray("AAAPABoAAQACAAEAAAAQABoAAQABAAEAAAARABoAAQABAAE
 tile_set = SubResource("TileSet_85g3d")
 
 [node name="Entities" type="Node2D" parent="." unique_id=2130636061]
+modulate = Color(0.21960784, 0.16862746, 0.14901961, 1)
 
-[node name="Path2D" type="Path2D" parent="Entities" unique_id=11422462]
+[node name="FloorPath" type="Path2D" parent="Entities" unique_id=11422462]
 curve = SubResource("Curve2D_0wfyh")
 
-[node name="TamaPath" type="PathFollow2D" parent="Entities/Path2D" unique_id=2060712254]
+[node name="TamaPath" type="PathFollow2D" parent="Entities/FloorPath" unique_id=2060712254]
 position = Vector2(320, 424)
 progress = 64.0
 loop = false
 
-[node name="TamaSprite" parent="Entities/Path2D/TamaPath" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
+[node name="TamaSprite" parent="Entities/FloorPath/TamaPath" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
 position = Vector2(0, -5)
 animation = &"gen_3_walk"
 frame_progress = 0.69173664
 
-[node name="SpawnPoint" type="Marker2D" parent="Entities/Path2D/TamaPath" unique_id=805363733]
+[node name="SpawnPoint" type="Marker2D" parent="Entities/FloorPath/TamaPath" unique_id=805363733]
 visible = false
 position = Vector2(0, -5)
+
+[node name="CeilingPath" type="Path2D" parent="Entities" unique_id=881775120]
+position = Vector2(0, -64)
+curve = SubResource("Curve2D_0wfyh")
+
+[node name="FoodPath" type="PathFollow2D" parent="Entities/CeilingPath" unique_id=1928137436]
+position = Vector2(282.049, 424)
+progress = 25.9072
+loop = false
+
+[node name="SpawnPoint" type="Marker2D" parent="Entities/CeilingPath/FoodPath" unique_id=937874436]
+
+[node name="Food" parent="Entities" unique_id=942030355 instance=ExtResource("3_sugp2")]
+position = Vector2(272, 368)
+gravity_scale = 0.1
+
+[node name="StaticObjects" type="Node2D" parent="." unique_id=494959228]
+
+[node name="Area2D" type="StaticBody2D" parent="StaticObjects" unique_id=2135229358]
+position = Vector2(320, 427.00003)
+scale = Vector2(1.1158991, 0.9899071)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticObjects/Area2D" unique_id=92790973]
+shape = SubResource("WorldBoundaryShape2D_jyhfs")

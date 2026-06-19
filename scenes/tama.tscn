@@ -150,7 +150,6 @@ animations = [{
 }]
 
 [node name="TamaSprite" type="AnimatedSprite2D" unique_id=1616122847]
-modulate = Color(0.21960784, 0.16862746, 0.14901961, 1)
 sprite_frames = SubResource("SpriteFrames_p04qi")
 animation = &"gen_3_idle"
 autoplay = "gen_1_idle"
@@ -173,7 +172,6 @@ one_shot = true
 autostart = true
 
 [node name="MutationTimer" type="Timer" parent="." unique_id=75734198]
-autostart = true
 
 [connection signal="evolving" from="Mutation" to="." method="_on_mutation_evolving"]
 [connection signal="idle_state_entered" from="Pathing" to="." method="_on_pathing_idle_state_entered"]

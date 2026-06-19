@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ck2rhd6lunarw"]
+
+[ext_resource type="Texture2D" uid="uid://cx8mm6jmcorup" path="res://assets/spritesheets/Food.png" id="1_xven1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xven1"]
+radius = 1.3867986
+height = 4.4375052
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=862593540]
+input_pickable = true
+gravity_scale = 0.1
+
+[node name="Food" type="Sprite2D" parent="." unique_id=942030355]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xven1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694534914]
+rotation = 0.58817595
+shape = SubResource("CapsuleShape2D_xven1")
