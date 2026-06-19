@@ -20,16 +20,11 @@ func _on_pathing_idle_state_entered() -> void:
 		if animation != "gen_1_idle":
 			animation = "gen_1_idle"
 	elif mutation.mutation_state == mutation.MutationState.GEN_2:
-		if animation != "gen_2_idle":
-			animation = "gen_2_idle"
+		if animation != "gen_2_idle_narrow":
+			animation = "gen_2_idle_narrow"
 	elif mutation.mutation_state == mutation.MutationState.GEN_3:
 		if animation != "gen_3_idle":
 			animation = "gen_3_idle"
-
-
-func _on_pathing_moving_state_entered() -> void:
-	pass # Replace with function body.
-
 
 func _on_pathing_wander_state_entered() -> void:
 	if mutation.mutation_state == mutation.MutationState.GEN_1:
@@ -44,3 +39,10 @@ func _on_pathing_wander_state_entered() -> void:
 	else:
 		if animation != "gen_1_walk":
 			animation = "gen_1_walk"
+
+func _on_mutation_evolving(gen: int) -> void:
+	if gen == mutation.MutationState.GEN_2:
+		animation = "gen_2_idle_narrow"
+	elif gen == mutation.MutationState.GEN_3:
+		animation = "gen_3_idle"
+		

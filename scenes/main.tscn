@@ -42,6 +42,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.72156864, 0.7607843, 0.7254902, 1)
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=288834056]
 position = Vector2(200, 328)
@@ -67,8 +68,8 @@ loop = false
 
 [node name="TamaSprite" parent="Entities/Path2D/TamaPath" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
 position = Vector2(0, -5)
-animation = &"gen_3_idle"
-frame_progress = 0.6539781
+animation = &"gen_3_walk"
+frame_progress = 0.69173664
 
 [node name="SpawnPoint" type="Marker2D" parent="Entities/Path2D/TamaPath" unique_id=805363733]
 visible = false

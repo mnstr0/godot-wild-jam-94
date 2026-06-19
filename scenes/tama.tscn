@@ -142,14 +142,19 @@ animations = [{
 "loop": true,
 "name": &"gen_3_walk",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="TamaSprite" type="AnimatedSprite2D" unique_id=1616122847]
 modulate = Color(0.21960784, 0.16862746, 0.14901961, 1)
 sprite_frames = SubResource("SpriteFrames_p04qi")
-animation = &"gen_1_idle"
+animation = &"gen_3_idle"
 autoplay = "gen_1_idle"
-frame_progress = 0.16168427
+frame_progress = 0.48711413
 script = ExtResource("4_mlsox")
 
 [node name="Mutation" type="Node2D" parent="." unique_id=981536554]
@@ -167,7 +172,11 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
+[node name="MutationTimer" type="Timer" parent="." unique_id=75734198]
+autostart = true
+
+[connection signal="evolving" from="Mutation" to="." method="_on_mutation_evolving"]
 [connection signal="idle_state_entered" from="Pathing" to="." method="_on_pathing_idle_state_entered"]
-[connection signal="moving_state_entered" from="Pathing" to="." method="_on_pathing_moving_state_entered"]
 [connection signal="wander_state_entered" from="Pathing" to="." method="_on_pathing_wander_state_entered"]
 [connection signal="timeout" from="IdleTimer" to="Pathing" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="MutationTimer" to="Mutation" method="increase_mutation_XP"]
