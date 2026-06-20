@@ -91,16 +91,35 @@ script = ExtResource("3_jyhfs")
 [node name="SpawnPoint" type="Marker2D" parent="Entities/CeilingPath/FoodPath" unique_id=937874436]
 
 [node name="FoodSpawnTimer" type="Timer" parent="Entities/CeilingPath/FoodPath/SpawnPoint" unique_id=1700567405]
-wait_time = 10.0
+wait_time = 8.0
 autostart = true
 
-[node name="StaticObjects" type="Node2D" parent="." unique_id=494959228]
+[node name="Boundaries" type="Node2D" parent="." unique_id=494959228]
+metadata/_edit_lock_ = true
 
-[node name="Area2D" type="StaticBody2D" parent="StaticObjects" unique_id=2135229358]
+[node name="FloorCollider" type="StaticBody2D" parent="Boundaries" unique_id=2135229358]
 position = Vector2(320, 427.00003)
 scale = Vector2(1.1158991, 0.9899071)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticObjects/Area2D" unique_id=92790973]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/FloorCollider" unique_id=92790973]
+shape = SubResource("WorldBoundaryShape2D_jyhfs")
+
+[node name="WallColliderLeft" type="StaticBody2D" parent="Boundaries" unique_id=1775268547]
+position = Vector2(320, 427.00003)
+scale = Vector2(1.1158991, 0.9899071)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/WallColliderLeft" unique_id=552589396]
+position = Vector2(-68.66048, -35.356873)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_jyhfs")
+
+[node name="WallColliderRight" type="StaticBody2D" parent="Boundaries" unique_id=90751724]
+position = Vector2(320, 427.00003)
+scale = Vector2(1.1158991, 0.9899071)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/WallColliderRight" unique_id=874005314]
+position = Vector2(68.66046, -35.356884)
+rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_jyhfs")
 
 [connection signal="timeout" from="Entities/CeilingPath/FoodPath/SpawnPoint/FoodSpawnTimer" to="Entities/CeilingPath/FoodPath" method="spawn_food"]
