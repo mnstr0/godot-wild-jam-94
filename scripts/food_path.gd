@@ -15,3 +15,4 @@ func spawn_food() -> void:
 	var food_instance = food.duplicate()
 	food_instance.position = position
 	get_parent().add_child(food_instance)
+	print("Food spawned at: ", position)
