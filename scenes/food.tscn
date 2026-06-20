@@ -17,3 +17,5 @@ texture = ExtResource("1_xven1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694534914]
 rotation = 0.58817595
 shape = SubResource("CapsuleShape2D_xven1")
+
+[node name="DespawnTimer" type="Timer" parent="." unique_id=1360902073]

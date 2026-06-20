@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://iukwkup02nn4"]
 
 [ext_resource type="Texture2D" uid="uid://8kg5qrcbxofc" path="res://assets/spritesheets/Borders_white.png" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://ck2rhd6lunarw" path="res://scenes/food.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://b5mnxax14fjqv" path="res://scripts/food_path.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cyauepk8adsdv" path="res://scenes/tama.tscn" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
@@ -84,15 +84,15 @@ position = Vector2(0, -64)
 curve = SubResource("Curve2D_0wfyh")
 
 [node name="FoodPath" type="PathFollow2D" parent="Entities/CeilingPath" unique_id=1928137436]
-position = Vector2(282.049, 424)
-progress = 25.9072
-loop = false
+position = Vector2(337.37387, 424)
+progress = 81.3056
+script = ExtResource("3_jyhfs")
 
 [node name="SpawnPoint" type="Marker2D" parent="Entities/CeilingPath/FoodPath" unique_id=937874436]
 
-[node name="Food" parent="Entities" unique_id=942030355 instance=ExtResource("3_sugp2")]
-position = Vector2(272, 368)
-gravity_scale = 0.1
+[node name="FoodSpawnTimer" type="Timer" parent="Entities/CeilingPath/FoodPath/SpawnPoint" unique_id=1700567405]
+wait_time = 10.0
+autostart = true
 
 [node name="StaticObjects" type="Node2D" parent="." unique_id=494959228]
 
@@ -102,3 +102,5 @@ scale = Vector2(1.1158991, 0.9899071)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticObjects/Area2D" unique_id=92790973]
 shape = SubResource("WorldBoundaryShape2D_jyhfs")
+
+[connection signal="timeout" from="Entities/CeilingPath/FoodPath/SpawnPoint/FoodSpawnTimer" to="Entities/CeilingPath/FoodPath" method="spawn_food"]
