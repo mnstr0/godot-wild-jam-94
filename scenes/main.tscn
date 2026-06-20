@@ -71,9 +71,9 @@ progress = 64.0
 loop = false
 
 [node name="TamaSprite" parent="Entities/FloorPath/TamaPath" unique_id=1616122847 instance=ExtResource("5_tbgi4")]
+unique_name_in_owner = true
 position = Vector2(0, -5)
-animation = &"gen_3_walk"
-frame_progress = 0.69173664
+frame_progress = 0.29859728
 
 [node name="SpawnPoint" type="Marker2D" parent="Entities/FloorPath/TamaPath" unique_id=805363733]
 visible = false
@@ -95,6 +95,7 @@ wait_time = 8.0
 autostart = true
 
 [node name="Boundaries" type="Node2D" parent="." unique_id=494959228]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="FloorCollider" type="StaticBody2D" parent="Boundaries" unique_id=2135229358]
