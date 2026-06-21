@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dt0b60f1a1cov"]
+
+[ext_resource type="Script" uid="uid://65ut3kbsem4m" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[sub_resource type="Theme" id="Theme_ekxnf"]
+
+[node name="MainMenuControl" type="Control" unique_id=1137455322]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ekxnf")
+script = ExtResource("1_l6cm7")
+
+[node name="MenuContainer" type="MarginContainer" parent="." unique_id=586389028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="MenuContainer" unique_id=572329848]
+layout_mode = 2
+
+[node name="TitleLableControl" type="Control" parent="MenuContainer/TitleMargin" unique_id=67585953]
+layout_mode = 2
+
+[node name="TitleLable" type="Label" parent="MenuContainer/TitleMargin/TitleLableControl" unique_id=4942641]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_right = 56.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Tama Desktop"
+
+[node name="MenuItemsMargin" type="MarginContainer" parent="MenuContainer" unique_id=1903063750]
+layout_mode = 2
+
+[node name="MenuItemsControl" type="Control" parent="MenuContainer/MenuItemsMargin" unique_id=314867659]
+layout_mode = 2
+
+[node name="MenuItems" type="BoxContainer" parent="MenuContainer/MenuItemsMargin/MenuItemsControl" unique_id=267336668]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 189.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+vertical = true
+
+[node name="NewGame" type="Button" parent="MenuContainer/MenuItemsMargin/MenuItemsControl/MenuItems" unique_id=1297389388]
+layout_mode = 2
+text = "New Game"
+
+[node name="QuitGame" type="Button" parent="MenuContainer/MenuItemsMargin/MenuItemsControl/MenuItems" unique_id=423865595]
+layout_mode = 2
+text = "Quit Game"
+
+[connection signal="pressed" from="MenuContainer/MenuItemsMargin/MenuItemsControl/MenuItems/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuItemsMargin/MenuItemsControl/MenuItems/QuitGame" to="." method="_on_quit_pressed"]
